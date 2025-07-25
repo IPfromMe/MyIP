@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <title>Mon IP</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Votre adresse IP est :</h1>
+    <p id="ip">Chargement...</p>
+
+    <script>
+      fetch('https://api.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('ip').textContent = data.ip;
+        })
+        .catch(() => {
+          document.getElementById('ip').textContent = "Impossible de récupérer l'adresse IP.";
+        });
+    </script>
+  </body>
+</html>
