@@ -1,29 +1,58 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8">
-    <title>Mon IP</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        margin-top: 100px;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Votre adresse IP est :</h1>
-    <p id="ip">Chargement...</p>
+<head>
+  <meta charset="UTF-8" />
+  <title>Mon IP & Localisation</title>
+  <link rel="stylesheet" href="style.css" />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    integrity="sha256-sA+qCoX0SiqkRBV3xCXb5ILxQG35cby6hzQ9f+tnwMg="
+    crossorigin=""
+  />
+</head>
+<body>
+  <header>
+    <h1 data-i18n="title">Quelle est mon adresse IP ?</h1>
+    <select id="languageSwitcher">
+      <option value="fr">Français</option>
+      <option value="en">English</option>
+    </select>
+  </header>
 
-    <script>
-      fetch('https://api.ipify.org?format=json')
-        .then(response => response.json())
-        .then(data => {
-          document.getElementById('ip').textContent = data.ip;
-        })
-        .catch(() => {
-          document.getElementById('ip').textContent = "Impossible de récupérer l'adresse IP.";
-        });
-    </script>
-  </body>
+  <main>
+    <div class="info-block">
+      <strong data-i18n="ip">Adresse IP :</strong> <span id="ip">...</span>
+    </div>
+    <div class="info-block">
+      <strong data-i18n="country">Pays :</strong> <span id="country">...</span>
+    </div>
+    <div class="info-block">
+      <strong data-i18n="city">Ville :</strong> <span id="city">...</span>
+    </div>
+    <div class="info-block">
+      <strong data-i18n="postal">Code postal :</strong> <span id="postal">...</span>
+    </div>
+    <div class="info-block">
+      <strong data-i18n="org">Fournisseur :</strong> <span id="org">...</span>
+    </div>
+
+    <div id="map" style="height: 350px; margin-top: 20px;"></div>
+
+    <section id="monetization" style="margin-top: 40px;">
+      <h2 data-i18n="vpn">Nos partenaires VPN recommandés</h2>
+      <ul>
+        <li><a href="https://go.nordvpn.net/aff_c?offer_id=8&aff_id=12345" target="_blank" rel="noopener noreferrer">NordVPN</a></li>
+        <li><a href="https://surfshark.deals/aff_c?offer_id=12&aff_id=12345" target="_blank" rel="noopener noreferrer">Surfshark</a></li>
+        <li><a href="https://www.expressvpn.com/order?affiliate_id=12345" target="_blank" rel="noopener noreferrer">ExpressVPN</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-o9N1j6LBp9yVEq1aA4BTOEec44+Hp6B5LY5u7f0u0F0="
+    crossorigin=""></script>
+  <script src="i18n.js"></script>
+  <script src="script.js"></script>
+</body>
 </html>
