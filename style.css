@@ -1,0 +1,49 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 650px;
+  margin: 30px auto;
+  padding: 0 15px;
+  background: #fafafa;
+  color: #333;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+
+select {
+  padding: 6px 12px;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.info-block {
+  margin: 12px 0;
+  font-size: 1.1rem;
+}
+
+#monetization ul {
+  list-style: none;
+  padding: 0;
+}
+
+#monetization ul li {
+  margin: 8px 0;
+}
+
+#monetization a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+#monetization a:hover {
+  text-decoration: underline;
+}
